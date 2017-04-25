@@ -1,21 +1,24 @@
 {
-    "name": "myangular",
-    "version": "1.0.0",
-    "description": "自己用angular+requirejs 搭的小项目",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/topchenxi/myAngular.git"
-    },
-    "author": "c.c.",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/topchenxi/myAngular/issues"
-    },
-    "homepage": "https://github.com/topchenxi/myAngular#readme",
-    "dependencies": {}
-
+  "name": "myangular",
+  "version": "1.0.0",
+  "description": "自己用angular+requirejs 搭的小项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topchenxi/myAngular.git"
+  },
+  "author": "c.c.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/topchenxi/myAngular/issues"
+  },
+  "homepage": "https://github.com/topchenxi/myAngular#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "run-sequence": "^1.2.2"
+  }
 }
