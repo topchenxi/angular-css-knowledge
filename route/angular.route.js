@@ -16,40 +16,36 @@ define(['../app'], function(app) {
         const PATH_MENU = './views/common/menu.html';
 
 
-        $stateProvider
 
-        // B
-            .state('index', {
-                url: '/index',
-                views: {
-                    'layout': {
-                        templateUrl: PATH_LAYOUT
-                    },
-                    'side@index': {
-                        templateUrl: PATH_MENU
-                    },
-                    'main@index':{
-                        templateUrl: './views/homepage/index.html'
-                    }
+        $stateProvider.state('index', {
+            url: '/index',
+            views: {
+                'layout': {
+                    templateUrl: PATH_LAYOUT
+                },
+                'side@index': {
+                    templateUrl: PATH_MENU
+                },
+                'main@index': {
+                    templateUrl: './views/homepage/index.html'
                 }
-            })
+            }
+        }).state('main', {
             // A
-            .state('main', {
-                url: '/main',
-                views: {
-                    'layout': {
-                        templateUrl: PATH_LAYOUT
-                    },
-                    'side@main': {
-                        templateUrl: PATH_MENU
-                    },
-                    'main@index':{
-                        templateUrl: './views/homepage/index.html'
-                    }
+            url: '/main',
+            views: {
+                'layout': {
+                    templateUrl: PATH_LAYOUT
+                },
+                'side@main': {
+                    templateUrl: PATH_MENU
+                },
+                'main@index': {
+                    templateUrl: './views/homepage/index.html'
                 }
-            })
+            }
+        })
 
-        console.log($stateProvider);
 
 
 
