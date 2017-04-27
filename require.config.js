@@ -26,7 +26,8 @@ require([
     'angular',
     'app',
     'route',
-    'ui-route'
+    'ui-route',
+    './controller/controller',
 ], function() {
     angular.bootstrap(document, ['webapp']);
 })
