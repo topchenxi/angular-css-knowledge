@@ -1,11 +1,7 @@
 {
     "name": "myangular",
     "version": "1.0.0",
-    "description": "自己用angular+requirejs 搭的小项目",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    "description": "angular+angular-ui-router+requirejs+gulp",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/topchenxi/myAngular.git"
