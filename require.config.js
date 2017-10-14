@@ -9,6 +9,7 @@ require.config({
         'app': CURRENT_PATH + 'app',
         'ui-route': COMPONENTS_PATH + 'angular-ui-router/release/angular-ui-router',
         'route': CURRENT_PATH + 'route/angular.route',
+        'menu': CURRENT_PATH + 'route/menu'
     },
     shim: {
         'angular': {
@@ -27,6 +28,7 @@ require([
     'app',
     'route',
     'ui-route',
+    'menu',
     './controller/controller',
 ], function() {
     angular.bootstrap(document, ['webapp']);

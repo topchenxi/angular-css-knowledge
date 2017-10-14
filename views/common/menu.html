@@ -1,16 +1,20 @@
 <div class="sidebar-top">
-    <a href="/">
-			Demo by <strong>c.c.</strong>
-		</a>
+    <a href="https://github.com/topchenxi">
+        Create by <strong>c.c.</strong>
+    </a>
 </div>
 <div class="sidebar-nav">
     <ul>
         <li class="sidebar-header">Welcome</li>
-        <li>
-            <a ui-sref="index" ui-sref-active="active"> index</a>
-        </li>
-        <li>
-            <a ui-sref="main" ui-sref-active="active"> main</a>
+        <li ng-repeat="item in $root.menuList" ui-sref-active="active">
+            <a ui-sref="{{item.url}}">{{item.moduleName}} </a>
+            <ol>
+                <li ng-repeat="subItem in item.children">
+                    <a ui-sref-active="active" ui-sref="{{subItem.url}}">
+                     {{subItem.desc}}
+                 </a>
+                </li>
+            </ol>
         </li>
     </ul>
 </div>

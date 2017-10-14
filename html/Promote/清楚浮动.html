@@ -1,0 +1,137 @@
+<h4 id="-or-">一、清除浮动 or 闭合浮动 ？</h4>
+<ol>
+<li>清除浮动：清除对应的单词是 clear，对应CSS中的属性是 clear：left | right | both | none。</li>
+<li>闭合浮动：更确切的含义是使浮动元素闭合，从而减少浮动带来的影响。</li>
+</ol>
+<blockquote>
+<p>结论：用闭合浮动比清除浮动更加严谨，所以后文中统一称之为：闭合浮动。</p>
+</blockquote>
+<h4 id="-">二、为何要闭合浮动？</h4>
+<p>CSS中的定位机制：普通流，浮动，绝对定位 。</p>
+<ol>
+<li>普通流：（normal flow)，或者称之为常规流</li>
+<li>浮动：浮动的框可以左右移动，直至它的外边缘遇到包含框或者另一个浮动框的边缘。浮动框不属于文档中的普通流，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样，当浮动框高度超出包含框的时候，也就会出现包含框不会自动伸高来闭合浮动元素（“高度塌陷”现象）。</li>
+<li>绝对定位</li>
+</ol>
+<blockquote>
+<p>正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，包含框内部由于不存在其他普通流元素了，也就表现出高度为0（高度塌陷）。在实际布局中，往往这并不是我们所希望的，所以需要闭合浮动元素，使其包含框表现出正常的高度。</p>
+</blockquote>
+<p>三、闭合浮动</p>
+<ul>
+<li>添加额外标签。通过在浮动元素末尾添加一个空的标签</li>
+</ul>
+<pre><code class="lang-html">&lt;div style=&quot;clear:both;&quot;&gt; &lt;/div&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;div class=&quot;demo&quot;&gt;
+    &lt;h2&gt;1）添加额外标签&lt;/h2&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;.main{float:left;}&lt;/div&gt;
+    &lt;div style=&quot;float: right;&quot;&gt;.side{float:right;}&lt;/div&gt;
+    &lt;div style=&quot;clear:both;&quot;&gt; &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>优点：通俗易懂，容易掌握。</p>
+<p>缺点：可以想象通过此方法，会添加多少无意义的空标签。</p>
+</blockquote>
+<ul>
+<li>使用 br标签和其自身的 html属性 br 有 clear=“all | left | right | none” 属性</li>
+</ul>
+<pre><code class="lang-html">&lt;div class=&quot;demo&quot;&gt;
+    &lt;h2&gt;2）使用 br标签和其自身的 html属性&lt;/h2&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;.main{float:left;}&lt;/div&gt;
+    &lt;div style=&quot;float: right;&quot;&gt;.side{float:right;}&lt;/div&gt;
+    &lt;br clear=&quot;all&quot;/&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p> 优点：比空标签方式语义稍强，代码量较少</p>
+<p> 缺点：同样有违结构与表现的分离，不推荐使用</p>
+</blockquote>
+<ul>
+<li>父元素设置 overflow：hidden</li>
+</ul>
+<p>通过设置父元素overflow值设置为hidden
+在IE6中还需要触发 hasLayout ，例如 zoom：1；</p>
+<pre><code class="lang-html">&lt;div class=&quot;demo&quot; style=&quot;overflow:hidden; *zoom:1;&quot;&gt;
+    &lt;h2&gt;3)父元素设置 overflow&lt;/h2&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;.main{float:left;}&lt;/div&gt;
+    &lt;div style=&quot;float: right;&quot;&gt;.side{float:right;}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>优点：不存在结构和语义化问题，代码量极少</p>
+<p>缺点：内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素；04年POPO就发现overflow:hidden会导致中键失效，作为一个多标签浏览控所不能接受的。了</p>
+</blockquote>
+<ul>
+<li>父元素设置 overflow：auto 属性</li>
+</ul>
+<p>同样IE6需要触发hasLayout，演示和3差不多</p>
+<blockquote>
+<p>优点：不存在结构和语义化问题，代码量极少</p>
+<p>缺点：多个嵌套后，firefox某些情况会造成内容全选；IE中 mouseover 造成宽度改变时会出现最外层模块有滚动条等，firefox早期版本会无故产生focus等, 请看 嗷嗷的 Demo ,不要使用</p>
+</blockquote>
+<ul>
+<li>父元素也设置浮动</li>
+</ul>
+<blockquote>
+<p>优点：不存在结构和语义化问题，代码量极少</p>
+<p>缺点：使得与父元素相邻的元素的布局会受到影响，不可能一直浮动到body，不推荐使用</p>
+</blockquote>
+<ul>
+<li>父元素设置display:table</li>
+</ul>
+<pre><code class="lang-html">&lt;div class=&quot;demo&quot; style=&quot;display:table;&quot;&gt;
+    &lt;h3&gt;6）父元素设置display:table&lt;/h3&gt;
+    &lt;div style=&quot;float: left;&quot;&gt;.main{float:left;}&lt;/div&gt;
+    &lt;div style=&quot;float: right;&quot;&gt;.side{float:right;}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>优点：结构语义化完全正确，代码量极少</p>
+<p>缺点：盒模型属性已经改变，由此造成的一系列问题，得不偿失，不推荐使用</p>
+</blockquote>
+<p>7）使用:after 伪元素
+需要注意的是 :after是伪元素（Pseudo-Element），不是伪类（某些CSS手册里面称之为“伪对象”），很多闭合浮动大全之类的文章都称之为伪类，不过csser要严谨一点，这是一种态度。
+由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。</p>
+<pre><code class="lang-css">/*方法一*/
+/*
+    相对于空标签闭合浮动的方法代码似乎还是有些冗余，通过查询发现Unicode字符里有一个&quot;零宽度空格&quot;，
+    也就是U+200B ，这个字符本身是不可见的，所以我们完全可以省略掉 visibility:hidden了
+*/
+.clearfix:after
+{
+    display: block;
+    clear: both;
+
+    height: 0;
+
+    content: &#39;200B&#39;;
+}
+.clearfix
+{
+    *zoom: 1;
+}
+
+/*方法二*/
+
+.clearfix:before,
+.clearfix:after
+{
+    display: table;
+
+    content: &#39;&#39;;
+}
+.clearfix:after
+{
+    clear: both;
+}
+
+.clearfix
+{
+    *zoom: 1;
+}
+</code></pre>
+<blockquote>
+<p>优点：结构和语义化完全正确,代码量居中</p>
+<p>缺点：复用方式不当会造成代码量增加</p>
+</blockquote>

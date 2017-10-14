@@ -1,0 +1,50 @@
+<h3 id="flex-">flex 入门</h3>
+<h4 id="-">属性介绍</h4>
+<p>父级元素 : (为了兼容低版本浏览器,要加上 -webkit -ms 前缀)</p>
+<pre><code class="lang-css">display: flex;
+</code></pre>
+<p>1.</p>
+<blockquote>
+<p><code>flex-direction</code> (定义了伸缩项目放置在伸缩容器的方向)</p>
+</blockquote>
+<p><code>row</code> : (默认值)同一行中 排版方式下从左向右排列
+<code>row-reverse</code> : 与row排列方向相反,同一行中 排版方式下从右向左排列。
+<code>column</code> : 类似 于row,不过是从上到下排列
+<code>column-reverse</code> : 类似于row-reverse,不过是从下到上排列。</p>
+<p>2.</p>
+<blockquote>
+<p><code>flex-wrap</code> (定义伸缩容器里是单行还是多行显示)</p>
+</blockquote>
+<p><code>nowrap</code> : (默认值)伸缩容器单行显示,同一行中, 排版方式下从左向右排列
+<code>wrap</code> : 伸缩容器多行显示,同一行中, 排版方式下从左向右排列
+<code>wrap-reverse</code> : 与wrap排列方向相反 伸缩容器多行显示,同一行中,伸缩项目从右向左排列</p>
+<p>3.</p>
+<blockquote>
+<p><code>justify-content</code> (定义伸缩项目沿着主轴线的对齐方式)</p>
+</blockquote>
+<p><code>flex-start``:(默认值)同一行的起始位置靠齐。</code>flex-end<code>：同一行的结束位置靠齐。</code>center<code>：同一行的中间位置靠齐。</code>space-between<code>：伸缩项目会平均地分布在行里。第一个伸缩项目一行中的最开始位置，最后一个伸缩项目在一行中最终点位置。</code>space-around`：伸缩项目会平均地分布在行里，两端保留一半的空间。</p>
+<p>4.</p>
+<blockquote>
+<p><code>align-item</code> (定义伸缩项目可以在伸缩容器的当前行的侧轴上对齐方式)</p>
+</blockquote>
+<p><code>flex-start</code> : 伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。()
+<code>flex-end</code> : 伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。
+<code>center</code> : 伸缩项目的外边距盒在该行的侧轴上居中放置。
+<code>baseline</code> : 伸缩项目根据他们的基线对齐。
+<code>stretch</code> : （默认值）伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。</p>
+<p>5.</p>
+<blockquote>
+<p><code>order</code> (伸缩项目是按照文档流出现先后顺序排列) 作用子元素</p>
+</blockquote>
+<p><code>integer</code> : 1,2,3,4..</p>
+<p>6.</p>
+<blockquote>
+<p><code>flex-grow</code> (定义伸缩项目的扩展能力) 作用子元素</p>
+</blockquote>
+<p><code>1</code> : 每个伸缩项目将设置为一个大小相等的剩余空间
+<code>2</code> : 伸缩项目所占的剩余空间是其他伸缩项目所占剩余空间的两倍</p>
+<p>7.</p>
+<blockquote>
+<p><code>flex-basis</code> (定义伸缩基准值，剩余的空间按比率进行伸缩) 作用子元素</p>
+</blockquote>
+<p><code>length</code> : 剩余的空间按比率进行伸缩</p>

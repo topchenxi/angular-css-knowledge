@@ -1,0 +1,201 @@
+<blockquote>
+<p>css部分</p>
+</blockquote>
+<pre><code class="lang-css">    * {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+        font-family: Microsoft Yahei;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    input {
+        font-family: Microsoft Yahei;
+        vertical-align: middle;
+    }
+
+    input,
+    select {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    input[type=radio]::-ms-clear,
+    input[type=tel]::-ms-clear,
+    input[type=number]::-ms-clear {
+        display: none;
+    }
+
+    input[type=radio]::-ms-check,
+    input[type=checkbox]::-ms-check {
+        display: none;
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+
+    a,
+    button,
+    input,
+    textarea {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-user-modify: read-write-plaintext-only;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #999;
+    }
+
+    :-moz-placeholder {
+        color: #999;
+    }
+
+    ::-moz-placeholder {
+        color: #999;
+    }
+
+    ::-ms-input-placeholder {
+        color: #999;
+    }
+
+    input:focus::-webkit-placeholder {
+        color: #999;
+    }
+
+    .wrap {
+        width: 90%;
+        margin: 20px auto 0;
+    }
+
+    .frm {}
+
+    .frm p {}
+
+    .ipt {
+        width: 96%;
+        height: 26px;
+        border: 1px solid #aaa;
+    }
+
+    .rad,
+    .chk {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        background: #fafafa;
+        border: 1px solid #bbb;
+        box-shadow: inset 0 0 0 10px #158EC6;
+    }
+
+    .rad:after,
+    .chk:after {
+        position: absolute;
+        display: none;
+        z-index: 3;
+        color: #eee;
+    }
+
+    .rad {
+        border-radius: 100%;
+        background: #fafafa;
+    }
+
+    .rad:after {
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 100%;
+        content: &#39;&#39;;
+        left: 5px;
+        top: 5px;
+    }
+
+    .rad:checked:after {
+        display: block;
+    }
+
+    .chk {
+        border-radius: 3px;
+    }
+
+    .chk:after {
+        content: &quot;\2713&quot;;
+        font-size: 12px;
+        left: 4px;
+        top: -2px;
+    }
+
+    .chk:checked:after {
+        display: block;
+    }
+
+    .selWrap {
+        position: relative;
+    }
+
+    .selWrap:after {
+        position: absolute;
+        content: &#39;&#39;;
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 8px;
+        border-style: solid dashed dashed;
+        border-color: #158EC6 transparent transparent;
+        right: 5px;
+        top: 8px;
+        z-index: 3;
+    }
+
+    .sel {
+        width: 96%;
+        height: 32px;
+    }
+</code></pre>
+<blockquote>
+<p>html部分</p>
+</blockquote>
+<pre><code class="lang-html">&lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;frm&quot;&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;text&quot; placeholder=&quot;文本&quot; class=&quot;ipt&quot; /&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;number&quot; placeholder=&quot;数值&quot; class=&quot;ipt&quot; /&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;tel&quot; placeholder=&quot;手机号&quot; class=&quot;ipt&quot; /&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;mail&quot; placeholder=&quot;邮箱&quot; class=&quot;ipt&quot; /&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;rad&quot; id=&quot;&quot; class=&quot;rad&quot; /&gt;选项一
+            &lt;input type=&quot;radio&quot; name=&quot;rad&quot; id=&quot;&quot; class=&quot;rad&quot; /&gt;选项二
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;chk&quot; id=&quot;&quot; class=&quot;chk&quot; /&gt;选项一
+            &lt;input type=&quot;checkbox&quot; name=&quot;chk&quot; id=&quot;&quot; class=&quot;chk&quot; /&gt;选项二
+            &lt;input type=&quot;checkbox&quot; name=&quot;chk&quot; id=&quot;&quot; class=&quot;chk&quot; /&gt;选项三
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;span class=&quot;selWrap&quot;&gt;
+                &lt;select name=&quot;&quot; id=&quot;&quot; class=&quot;sel&quot;&gt;
+                    &lt;option value=&quot;0&quot;&gt;-请选择职业-&lt;/option&gt;
+                    &lt;option value=&quot;1&quot;&gt;前端攻城狮&lt;/option&gt;
+                    &lt;option value=&quot;2&quot;&gt;程序猿&lt;/option&gt;
+                    &lt;option value=&quot;3&quot;&gt;美工&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>

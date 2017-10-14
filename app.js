@@ -1,8 +1,4 @@
-define(['angular'], function(angular) {
-
-    var app = angular.module('webapp', [
-        'ui.router',
-        'webapp.Ctrl',
-    ]);
-    return app;
-});
+define(['angular'], angular => angular.module('webapp', [
+    'ui.router',
+    'webapp.Ctrl'
+]));

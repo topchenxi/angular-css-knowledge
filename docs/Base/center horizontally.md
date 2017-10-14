@@ -1,0 +1,84 @@
+
+```less
+/* 水平居中元素 */
+
+// 方式一：CSS3 transform 
+.parent
+{
+    position: relative;
+}
+.child
+{
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+// 方式二：Flex 布局
+// 适用于子元素为浮动，绝对定位，内联元素，均可水平居中。
+.parent
+{
+    display: flex;
+
+    justify-content: center;
+}
+
+// 方式三
+// 居中的元素为常规文档流中的内联元素(display: inline)
+// 常见的内联元素有：span, a, img, input, label 等等
+// 此方法同样适用于 display: inline-block 的元素。
+.parent
+{
+    text-align: center;
+}
+
+// 方式四
+// 居中的元素为常规文档流中的块元素(display: block)
+// 常见的块元素：div, h1~h6, table, p, ul, li 等等
+
+// 1. 设置 margin
+// 此方法只能进行水平的居中，且对浮动元素或绝对定位元素无效。
+.parent {
+    width: 100%;
+}
+.child {
+    width: 600px;// 一定要固定宽度
+    height: 50px;
+    margin: 0 auto;
+    background: #999;
+}
+
+// 2. 修改为 inline-block 属性
+.parent {
+    text-align: center;
+}
+.child {
+    display: inline-block;
+}
+
+// 方式五
+// 居中的元素为绝对定位元素
+// 1.
+.parent {
+    position: relative;
+}
+.child {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    margin-left: -50px;
+}
+// 2.
+.parent {
+    position: relative;
+}
+.child {
+    position: absolute;
+    width: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+```

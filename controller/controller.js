@@ -1,5 +1,6 @@
 define([
-    './main/main.js'
+    './main/main.js',
+    './homepage/homepage.js'
 ], function() {
 
 })

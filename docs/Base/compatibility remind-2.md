@@ -1,0 +1,49 @@
+1. 文字本身的大小不兼容。
+同样是font-size:14px的宋体文字，在不同浏览器下占的空间是不一样的，ie下实际占高16px，下留白3px，ff下实际占高17px，上留白1px，下留白3px。
+解决方案：给文字设定 line-height 。确保所有文字都有默认的 line-height 值。
+
+2. ff下容器高度限定.即容器定义了height之后，容器边框的外形就确定了，不会被内容撑大，而ie下是会被内容撑大，高度限定失效。所以不要轻易给容器定义height。
+
+3. 横向上的内容撑破容器问题。如果float 容器未定义宽度，ff下内容会尽可能撑开容器宽度，ie下则会优先考虑内容折行。故，内容可能撑破的浮动容器需要定义width。
+
+4. 浮动的清除，ff下必须清除浮动clear:both。
+
+5. double-margin bug。ie6下给浮动容器定义margin-left 或者margin-right 实际效果是数值的2倍。解决方案，给浮动容器定义display:inline。
+
+6. 吞吃现象.还是ie6，上下两个div，上面的div设置背景，却发现下面没有设置背景的div 也有了背景，这就是吞吃现象。对应上面的背景吞吃现象，还有滚动下边框缺失的现象。解决方案：使用zoom:1。
+
+7. 链接的hover状态。div:hover{} 这样的样式ie6是不认的，在ie7、ff下才有效果。
+
+8. block化的a链接，其内套absolute层，absolute层内放置img，ie下，鼠标点击img不会有链接效果，ff下正常。
+
+9. 无法彻底清除的float。解决方案：给ul 属性zoom:1 （给li 加zoom:1 没用）
+
+10. ie下overflow:hidden对其下的绝对层position:absolute或者相对层position:relative无效。解决方案：给overflow:hidden加position:relative或者position:absolute。另，ie6支持overflow-x或者overflow-y的特性，ie7、ff不支持。
+
+11. e6下严重的bug，float元素如没定义宽度，内部如有div定义了height或zoom:1，这个div就会占满一整行，即使你给了宽度。float元素如果作为布局用或复杂的容器，都要给个宽度的。
+
+12. e6下的bug，绝对定位的div下包含相对定位的div，如果给内层相对定位的div高度height具体值，内层相对层将具有100%的width值，外层绝对层将被撑大。解决方案给内层相对层float属性。
+
+13. ff的缺点。width:100%在ie里用很方便，会向上逐层搜索width值，忽视浮动层的影响，ff下搜索至浮动层结束，如此，只能给中间的所有浮动层加width:100%才行，累啊。
+
+14. iE6的问题。当层的高度小于20px时，IE6下要定义font-size：0px;否则高度为20px;
+
+16. ff下，只有body和html同时定义height:100%,高度才为100%。IE下只需要定义body.
+
+17. 链接(a标签)的边框与背景 a链接加边框和背景色
+display: block,
+
+18. ul标签在ff中默认是有padding值的,而在IE中只有margin有值所以先定义 
+ul{margin:0;padding:0;}
+
+20. form在IE6里面底下会多出来一行
+form{padding:0; margin:0;}
+
+21. 空td显示边框 
+table { border-collapse:collapse; }
+
+22. 图片透明兼容写法：
+filter:alpha(opacity=70);-moz-opacity:0.7;
+
+
+ 

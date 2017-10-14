@@ -1,0 +1,140 @@
+<p><a href="https://github.com/jsfront/src">常用前端代码资源</a></p>
+<pre><code class="lang-css">/*
+    文字换行 
+*/
+.break-work
+{
+    /* 强制不换行 */
+    white-space: nowrap;
+    /* 自动换行 */
+    word-wrap: break-word;
+    word-break: normal;
+    /* 强制英文单词断行 */
+    word-break: break-all;
+}
+/*
+    两端对齐
+*/
+.textAlign
+{
+    text-align: justify;
+    text-justify: inter-ideogra;
+}
+/* 
+    去掉Webkit(chrome)浏览器中input(文本框)或textarea的黄色焦点框
+*/
+input,
+button,
+select,
+textarea
+{
+    outline: none;
+}
+textarea
+{
+    font-size: 13px;
+
+    resize: none;
+}
+/*
+    清除浮动1
+*/
+.clearfix:after
+{
+    font-size: 0;
+
+    display: block;
+    visibility: hidden;
+    clear: both;
+
+    height: 0;
+
+    content: &#39; &#39;;
+}
+.clearfix
+{
+    display: inline-block;
+}
+html[xmlns] .clearfix
+{
+    display: block;
+}
+* html .clearfix
+{
+    height: 1%;
+}
+
+.clearfix
+{
+    *zoom: 1;
+}
+.clearfix:after
+{
+    display: table;
+    clear: both;
+
+    content: &#39;&#39;;
+}
+
+.clearfix
+{
+    overflow: hidden;
+
+    _zoom: 1;
+}
+
+/*
+    清除浮动2
+*/
+.clearfix
+{
+    zoom: 1;
+}
+.clearfix:before,
+.clearfix:after
+{
+    display: table;
+
+    content: &#39; &#39;;
+}
+.clearfix:after
+{
+    clear: both;
+}
+
+/*文字过多后显示省略号*/
+
+.ellipsis,
+.ell
+{
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*
+    mac font: osx平台字体优化
+*/
+body
+{
+    font-family: &#39;Hiragino Sans GB&#39;,&#39;Hiragino Sans GB W3&#39;,&#39;微软雅黑&#39;;
+}
+/*
+    min-height: 最小高度兼容代码
+*/
+.minheight500
+{
+    overflow: visible;
+
+    height: auto !important;
+    height: 500px;
+    min-height: 500px;
+}
+/*
+    鼠标不允许点击
+*/
+.ban-click
+{
+    cursor: not-allowed;
+}
+</code></pre>

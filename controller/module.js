@@ -1,4 +1,1 @@
-define(['angular'], function(ng) {
-    'use strict';
-    return ng.module('webapp.Ctrl', []);
-});
+define(['angular'], ng => ng.module('webapp.Ctrl', []));
